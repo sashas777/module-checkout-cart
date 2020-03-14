@@ -1,4 +1,4 @@
-#Cart UI Component
+# Cart UI Component
 [![Latest Stable Version](https://poser.pugx.org/thesgroup/module-checkout-cart/v/stable)](https://packagist.org/packages/thesgroup/module-checkout-cart)
 [![Total Downloads](https://poser.pugx.org/thesgroup/module-checkout-cart/downloads)](https://packagist.org/packages/thesgroup/module-checkout-cart)
 [![Latest Unstable Version](https://poser.pugx.org/thesgroup/module-checkout-cart/v/unstable)](https://packagist.org/packages/thesgroup/module-checkout-cart)
