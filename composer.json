@@ -1,0 +1,24 @@
+{
+  "name": "thesgroup/module-checkout-cart",
+  "description": "Checkout cart component module for Magento 2.3.x",
+  "homepage": "https://www.sashas.org/",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "require": {
+    "php": "~7.1.0||~7.2.0||~7.3.0",
+    "magento/framework": "102.0.*",
+    "magento/module-checkout": "100.3.*"
+  },
+  "license": [
+    "GPL-3.0"
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "TheSGroup\\CheckoutCart\\": ""
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author     Sashas IT Support <support@sashas.org>
+  ~ @copyright  2020  Sashas IT Support Inc. (http://www.extensions.sashas.org)
+  ~ @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="view_block_abstract_to_html_before">
+        <observer name="remove_block" instance="TheSGroup\CheckoutCart\Observer\RemoveBlock" />
+    </event>
+</config>

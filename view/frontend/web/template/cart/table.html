@@ -1,0 +1,45 @@
+<!--
+/**
+ * @author     Sashas IT Support <support@sashas.org>
+ * @copyright  2020  Sashas IT Support Inc. (http://www.extensions.sashas.org)
+ * @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
+ */
+-->
+<!-- ko if: (items().length>0)-->
+    <div id="cart-form" class="cart table-wrapper" data-bind="css: mergedCells() ? ' detailed' : ''">
+        <table id="shopping-cart-table" class="cart items data table">
+            <caption class="table-caption" data-bind="i18n: 'Shopping Cart Items'"></caption>
+            <thead>
+            <tr>
+                <th class="col item" scope="col"><span data-bind="i18n: 'Items'"></span></th>
+                <th class="col price" scope="col"><span data-bind="i18n: 'Price'"></span></th>
+                <th class="col qty" scope="col"><span data-bind="i18n: 'Qty'"></span></th>
+                <th class="col subtotal" scope="col"><span data-bind="i18n: 'Subtotal'"></span></th>
+            </tr>
+            </thead>
+            <!-- ko foreach: getRegion('before_items') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+            <!-- ko foreach: getRegion('items') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+            <!-- ko foreach: getRegion('after_items') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </table>
+    </div>
+    <div class="cart main actions">
+        <button type="button" data-bind="attr: {'title': $t('Clear Shopping Cart')}, click: emptyCart.bind($data)"
+                name="clear_cart_action"
+                data-cart-empty=""
+                value="empty_cart"
+                class="action" id="empty_cart_button">
+            <span data-bind="i18n: 'Clear Shopping Cart'"></span>
+        </button>
+    </div>
+<!-- /ko -->
+<!-- ko ifnot: (items().length>0)-->
+<div class="cart-empty">
+    <p data-bind="i18n: 'You have no items in your shopping cart.'"></p>
+</div>
+<!-- /ko -->

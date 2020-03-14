@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author     Sashas IT Support <support@sashas.org>
+  ~ @copyright  2020  Sashas IT Support Inc. (http://www.extensions.sashas.org)
+  ~ @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="TheSGroup_CheckoutCart" setup_version="1.0.0">
+        <sequence>
+            <module name="Magento_Checkout"/>
+            <module name="Magento_Customer"/>
+            <module name="Magento_Quote"/>
+        </sequence>
+    </module>
+</config>

@@ -1,0 +1,114 @@
+<!--
+/**
+ * @author     Sashas IT Support <support@sashas.org>
+ * @copyright  2020  Sashas IT Support Inc. (http://www.extensions.sashas.org)
+ * @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
+ */
+-->
+<tbody class="cart item">
+<tr class="item-info">
+    <td data-bind="attr: {'data-th': $t('Item')}" class="col item">
+        <!-- ko if: (hasProductUrl($parent.item_id))-->
+            <a data-bind="attr: {'title': getName($parent), 'href': getProductUrl($parent.item_id)}" tabindex="-1" class="product-item-photo">
+                    <span class="product-image-container" data-bind="attr: {'style': 'width: ' + getWidth($parent) + 'px;' }">
+                    <span class="product-image-wrapper" style="padding-bottom: 100%;">
+                        <img data-bind="attr: {'src': getSrc($parent), 'max-width': getWidth($parent), 'max-height': getHeight($parent), 'alt': getAlt($parent), 'title': getAlt($parent) }"/>
+                    </span>
+                </span>
+            </a>
+        <!-- /ko -->
+        <!-- ko ifnot: (hasProductUrl($parent.item_id))-->
+            <span class="product-item-photo">
+                <span class="product-image-container" data-bind="attr: {'style': 'width: ' + getWidth($parent) + 'px;' }">
+                <span class="product-image-wrapper" style="padding-bottom: 100%;">
+                    <img data-bind="attr: {'src': getSrc($parent), 'max-width': getWidth($parent), 'max-height': getHeight($parent), 'alt': getAlt($parent), 'title': getAlt($parent) }"/>
+                </span>
+            </span>
+            </span>
+        <!-- /ko -->
+        <div class="product-item-details">
+            <strong class="product-item-name">
+                <!-- ko if: (hasProductUrl($parent.item_id))-->
+                  <a data-bind="text: getName($parent), attr: {'href': getProductUrl($parent.item_id)}"></a>
+                <!-- /ko -->
+                <!-- ko ifnot: (hasProductUrl($parent.item_id))-->
+                    <!-- ko text: getName($parent) --><!--/ko-->
+                <!-- /ko -->
+            </strong>
+            <!-- ko if: (JSON.parse($parent.options).length > 0)-->
+            <dl class="item-options">
+                <!--ko foreach: JSON.parse($parent.options)-->
+                    <dt data-bind="text: label"></dt>
+                    <!-- ko if: ($data.full_view)-->
+                    <dd data-bind="html: full_view"></dd>
+                    <!-- /ko -->
+                    <!-- ko ifnot: ($data.full_view)-->
+                    <dd data-bind="html: value"></dd>
+                    <!-- /ko -->
+                <!-- /ko -->
+            </dl>
+            <!-- /ko -->
+            <div class="cart item message notice" if="getMessage($parent)">
+                <div data-bind="text: getMessage($parent)"></div>
+            </div>
+            <!-- ko foreach: getRegion('product_additional_information') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        </div>
+    </td>
+    <!-- ko if: (canApplyMsrp($parent.item_id))-->
+        <td class="col msrp" data-bind="attr: {'data-th': $t('Price')}">
+            <span class="pricing msrp">
+                <span class="msrp notice" data-bind="text: $t('See price before order confirmation.')"></span>
+                <a href="javascript:void(0);" class="action help map"
+                   data-bind="attr: {'id': 'cart-msrp-help-'+$parent.item_id},
+                   mageInit: {'addToCart':{'helpLinkId': '#cart-msrp-help-'+$parent.item_id, 'productName' : $parent.name, 'showAddToCart' : false, 'origin' : 'info'}}">
+                    <span><!-- ko i18n: 'What\'s this?' --><!-- /ko --></span>
+                </a>
+            </span>
+        </td>
+    <!-- /ko -->
+    <!-- ko ifnot: (canApplyMsrp($parent.item_id))-->
+        <td class="col price" data-bind="attr: {'data-th': $t('Price')}">
+            <!-- ko foreach: getRegion('unit_price') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        </td>
+    <!-- /ko -->
+    <td class="col qty" data-bind="attr: {'data-th': $t('Qty')}">
+        <div class="field qty">
+            <div class="control qty">
+                <label data-bind="attr: {'for': 'cart-'+getId($parent)+'-qty'}">
+                    <span class="label" data-bind="text: $t('Qty')"></span>
+                    <input data-bind="attr: {'id': 'cart-'+getId($parent)+'-qty', 'title': $t('Qty'), 'name': 'cart['+getId($parent)+'][qty]'}, 'textInput': getQty($parent.item_id), event: { keypress: checkQtyField } "
+                           type="number"
+                           size="4"
+                           step="any"
+                           class="input-text qty"
+                           data-validate="{required:true,'validate-greater-than-zero':true}"
+                           data-role="cart-item-qty"/>
+                </label>
+            </div>
+        </div>
+    </td>
+    <td class="col subtotal" data-bind="attr: {'data-th': $t('Subtotal')}">
+        <!-- ko if: (canApplyMsrp($parent.item_id))-->
+            <span class="cart msrp subtotal">--</span>
+        <!-- /ko -->
+        <!-- ko ifnot: (canApplyMsrp($parent.item_id))-->
+            <!-- ko foreach: getRegion('row_price') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        <!-- /ko -->
+    </td>
+</tr>
+<tr class="item-actions">
+    <td colspan="4">
+        <div class="actions-toolbar">
+            <!-- ko foreach: getRegion('row_actions') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        </div>
+    </td>
+</tr>
+</tbody>

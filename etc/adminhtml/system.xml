@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author     Sashas IT Support <support@sashas.org>
+  ~ @copyright  2020  Sashas IT Support Inc. (http://www.extensions.sashas.org)
+  ~ @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="thesgroup" translate="label" sortOrder="1000">
+            <label>The S Group</label>
+        </tab>
+        <section id="thesgroup_checkoutcart" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Cart</label>
+            <tab>thesgroup</tab>
+            <resource>TheSGroup_CheckoutCart::cart</resource>
+            <group id="checkoutcart_group" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>UI Component</label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Enable Cart UI Component]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

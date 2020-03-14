@@ -1,0 +1,12 @@
+<!--
+/**
+ * @author     Sashas IT Support <support@sashas.org>
+ * @copyright  2020  Sashas IT Support Inc. (http://www.extensions.sashas.org)
+ * @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
+ */
+-->
+<!-- ko if: isVisibleInSiteVisibility($parents[2].item_id) -->
+<a class="action action-edit" data-bind="attr: {href: getConfigureUrl($parents[2].item_id), title: $t('Edit item parameters')}">
+    <span data-bind="i18n: 'Edit'"></span>
+</a>
+<!-- /ko -->

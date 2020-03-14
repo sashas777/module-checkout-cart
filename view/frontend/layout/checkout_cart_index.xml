@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author     Sashas IT Support <support@sashas.org>
+  ~ @copyright  2020  Sashas IT Support Inc. (http://www.extensions.sashas.org)
+  ~ @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
+  -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="checkout_cart_item_renderers"/>
+    <body>
+        <referenceContainer name="checkout.cart.container">
+            <block class="Magento\Checkout\Block\Cart\Grid" ifconfig="thesgroup_checkoutcart/checkoutcart_group/active" name="checkout.cart.table.component" as="cart-items-container" template="TheSGroup_CheckoutCart::cart/table.phtml" after="cart.summary">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="types" xsi:type="array">
+                            <item name="form.input" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                    <item name="deps" xsi:type="array">
+                                        <item name="0" xsi:type="string">checkoutProvider</item>
+                                    </item>
+                                    <item name="template" xsi:type="string">ui/form/field</item>
+                                    <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
+                                </item>
+                            </item>
+                        </item>
+                        <item name="components" xsi:type="array">
+                            <item name="checkout-cart-form" xsi:type="array">
+                                <item name="component" xsi:type="string">TheSGroup_CheckoutCart/js/view/table</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">TheSGroup_CheckoutCart/cart/table</item>
+                                </item>
+                                <item name="children" xsi:type="array">
+                                    <item name="itemsBefore" xsi:type="array">
+                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="displayArea" xsi:type="string">before_items</item>
+                                        <item name="children" xsi:type="array">
+                                            <!-- merge your components here -->
+                                        </item>
+                                    </item>
+                                    <item name="cart_items" xsi:type="array">
+                                        <item name="component" xsi:type="string">TheSGroup_CheckoutCart/js/view/cart-items</item>
+                                        <item name="displayArea" xsi:type="string">items</item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="itemInfo" xsi:type="array">
+                                                <item name="component" xsi:type="string">TheSGroup_CheckoutCart/js/view/item/default</item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="unitPrice" xsi:type="array">
+                                                        <item name="sortOrder" xsi:type="string">1</item>
+                                                        <item name="component" xsi:type="string">TheSGroup_CheckoutCart/js/view/item/price/unit</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="template" xsi:type="string">TheSGroup_CheckoutCart/cart/item/price/unit</item>
+                                                        </item>
+                                                        <item name="displayArea" xsi:type="string">unit_price</item>
+                                                    </item>
+                                                    <item name="rowPrice" xsi:type="array">
+                                                        <item name="component" xsi:type="string">TheSGroup_CheckoutCart/js/view/item/price/row</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="template" xsi:type="string">TheSGroup_CheckoutCart/cart/item/price/row</item>
+                                                        </item>
+                                                        <item name="displayArea" xsi:type="string">row_price</item>
+                                                    </item>
+                                                    <item name="productAdditionalInformation" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="displayArea" xsi:type="string">product_additional_information</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <!-- merge your components here -->
+                                                        </item>
+                                                    </item>
+                                                    <item name="rowActions" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="displayArea" xsi:type="string">row_actions</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="edit" xsi:type="array">
+                                                                <item name="sortOrder" xsi:type="string">1</item>
+                                                                <item name="component" xsi:type="string">TheSGroup_CheckoutCart/js/view/item/actions/edit</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="template" xsi:type="string">TheSGroup_CheckoutCart/cart/item/actions/edit</item>
+                                                                </item>
+                                                                <item name="displayArea" xsi:type="string">row_actions</item>
+                                                            </item>
+                                                            <item name="remove" xsi:type="array">
+                                                                <item name="sortOrder" xsi:type="string">2</item>
+                                                                <item name="component" xsi:type="string">TheSGroup_CheckoutCart/js/view/item/actions/remove</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="template" xsi:type="string">TheSGroup_CheckoutCart/cart/item/actions/remove</item>
+                                                                </item>
+                                                                <item name="displayArea" xsi:type="string">row_actions</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="itemsAfter" xsi:type="array">
+                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="displayArea" xsi:type="string">after_items</item>
+                                        <item name="children" xsi:type="array">
+                                            <!-- merge your components here -->
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

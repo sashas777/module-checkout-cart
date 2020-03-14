@@ -1,0 +1,46 @@
+<?php
+/**
+ * @author     Sashas IT Support <support@sashas.org>
+ * @copyright  2020  Sashas IT Support Inc. (http://www.extensions.sashas.org)
+ * @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+
+/**  @var $block \Magento\Checkout\Block\Cart\Grid */
+?>
+
+<?php $mergedCells = ($this->helper(Magento\Tax\Helper\Data::class)->displayCartBothPrices() ? 2 : 1); ?>
+<?= $block->getChildHtml('form_before') ?>
+<div id="cart-form-container" class="cart-component-container form form-cart" data-bind="scope:'checkout-cart-form'">
+    <div id="checkout-loader" data-role="checkout-loader" class="loading-mask" data-mage-init='{"checkoutLoader": {}}'>
+        <div class="loader">
+            <img src="<?= $block->escapeUrl($block->getViewFileUrl('images/loader-1.gif')) ?>"
+                 alt="<?= $block->escapeHtmlAttr(__('Loading...')) ?>"
+                 style="position: absolute;">
+        </div>
+    </div>
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+            {
+                "#cart-form-container": {
+                    "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+                }
+            }
+    </script>
+    <script>
+        window.checkoutCartMergedCells = <?= /* @noEscape */ $mergedCells ?>;
+    </script>
+    <script>
+        require([
+            'mage/url',
+            'Magento_Ui/js/block-loader'
+        ], function(url, blockLoader) {
+            blockLoader("<?= $block->escapeJs($block->escapeUrl($block->getViewFileUrl('images/loader-1.gif'))) ?>");
+            return url.setBaseUrl('<?= $block->escapeJs($block->escapeUrl($block->getBaseUrl())) ?>');
+        })
+    </script>
+</div>
+<?= $block->getChildHtml('checkout.cart.order.actions') ?>
+<?= $block->getChildHtml('shopping.cart.table.after') ?>
+

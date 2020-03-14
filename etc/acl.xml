@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author     Sashas IT Support <support@sashas.org>
+  ~ @copyright  2020  Sashas IT Support Inc. (http://www.extensions.sashas.org)
+  ~ @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="TheSGroup_CheckoutCart::cart" title="UI Component Cart Section" translate="true" sortOrder="1000" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
