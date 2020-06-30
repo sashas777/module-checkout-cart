@@ -14,6 +14,8 @@ use TheSGroup\CheckoutCart\Model\Cart\ImageProvider;
 
 /**
  * Class CheckoutCartConfigProvider
+ * @SuppressWarnings(PHPMD.CookieAndSessionMisuse)
+ * Configuration provider class
  */
 class CheckoutCartConfigProvider implements ConfigProviderInterface
 {

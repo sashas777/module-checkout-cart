@@ -24,8 +24,9 @@ define([
 
         getItemById: function(item_id) {
             let cartItems = customerData.get(['cart'])().items;
+
             for (let i=0; i < cartItems.length; i++) {
-                if (cartItems[i].item_id == item_id)
+                if (cartItems[i].item_id == item_id)  //eslint-disable-line eqeqeq
                     return cartItems[i];
             }
         }

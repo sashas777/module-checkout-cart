@@ -29,12 +29,13 @@ define([
         checkoutCartMergedCells: checkoutCartMergedCells,
 
         mergedCells: function () {
-            return this.checkoutCartMergedCells == 2 ? true : false;
+            return this.checkoutCartMergedCells == 2 ? true : false;  //eslint-disable-line eqeqeq
         },
 
-        emptyCart: function (eventData) {
+        emptyCart: function (eventData) {  //eslint-disable-line no-unused-vars
             let data = {'cart': {'empty_cart' : true }};
             var deferred = $.Deferred();
+
             updateCartAction(data, deferred);
             $.when(deferred).done(function () {
                 customerData.invalidate(['cart']);

@@ -30,6 +30,7 @@ define([
         removeItem: function (item_id) {
             let data = {'cart': {[item_id] : {'remove' : true }}};
             var deferred = $.Deferred();
+
             updateCartAction(data, deferred);
             $.when(deferred).done(function () {
                 customerData.invalidate(['cart']);

@@ -43,14 +43,17 @@ define([
             this._super();
 
             let quoteItemsTemp = quote.getItems();
+
             for (let i=0; i < quoteItemsTemp.length; i++) {
                 let itemId = quoteItemsTemp[i].item_id;
+
                 this.quoteItems[itemId] = quoteItemsTemp[i];
                 this.quoteItems[itemId].qty = ko.observable(quoteItemsTemp[i].qty);
 
                 this.quoteItems[itemId].qty.subscribe(function (newQtyValue) {
                     let data = {'cart': {[itemId] : {'qty' : newQtyValue}}};
                     var deferred = $.Deferred();
+
                     updateCartAction(data, deferred);
                     $.when(deferred).done(function () {
                         customerData.invalidate(['cart']);
@@ -62,6 +65,7 @@ define([
                 });
             }
             let cartItems = customerData.get(['cart'])().items;
+
             for (let i=0; i < cartItems.length; i++) {
                 this.quoteItems[cartItems[i].item_id].canApplyMsrp = cartItems[i].canApplyMsrp;
                 this.quoteItems[cartItems[i].item_id].product_has_url = cartItems[i].product_has_url;
@@ -90,7 +94,7 @@ define([
         },
 
         checkQtyField: function(data, event) {
-            return /^[1-9]*$/.test(event.key)
+            return /^[1-9]*$/.test(event.key);
         },
 
         getQty: function (itemId) {

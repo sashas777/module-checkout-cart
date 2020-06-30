@@ -12,9 +12,11 @@ use Magento\Catalog\Model\Product\Configuration\Item\ItemResolverInterface;
 use Magento\Quote\Api\CartItemRepositoryInterface;
 use Magento\Catalog\Helper\Image;
 use Magento\Quote\Api\Data\CartItemInterface;
+use Magento\Quote\Model\Quote\Item;
 
 /**
  * Class ImageProvider
+ * Cart image provider
  */
 class ImageProvider
 {
@@ -80,11 +82,11 @@ class ImageProvider
     }
 
     /**
-     * @param CartItemInterface $cartItem
+     * @param Item $cartItem
      *
      * @return \Magento\Catalog\Api\Data\ProductInterface
      */
-    private function getProductForThumbnail(CartItemInterface $cartItem)
+    private function getProductForThumbnail(Item $cartItem)
     {
         return $this->itemResolver->getFinalProduct($cartItem);
     }

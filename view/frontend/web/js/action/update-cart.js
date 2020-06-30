@@ -51,7 +51,7 @@ define([
             }
         }).fail(function () {
             deferred.reject();
-            errorProcessor.process(response);
+            errorProcessor.process({status: 401});
         });
     };
 });
