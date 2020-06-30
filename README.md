@@ -3,6 +3,8 @@
 [![Total Downloads](https://poser.pugx.org/thesgroup/module-checkout-cart/downloads)](https://packagist.org/packages/thesgroup/module-checkout-cart)
 [![Latest Unstable Version](https://poser.pugx.org/thesgroup/module-checkout-cart/v/unstable)](https://packagist.org/packages/thesgroup/module-checkout-cart)
 [![License](https://poser.pugx.org/thesgroup/module-checkout-cart/license)](https://packagist.org/packages/thesgroup/module-checkout-cart)
+[![pipeline status](https://gitlab.com/sashas777/module-checkout-cart/badges/master/pipeline.svg)](https://gitlab.com/sashas777/module-checkout-cart/-/commits/master)
+[![coverage report](https://gitlab.com/sashas777/module-checkout-cart/badges/master/coverage.svg)](https://gitlab.com/sashas777/module-checkout-cart/-/commits/master)
 
 The Magento 2 module replaces out of the box cart page with Ui Component. 
 

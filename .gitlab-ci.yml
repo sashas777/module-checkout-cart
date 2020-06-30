@@ -1,0 +1,78 @@
+image: "sashas777/magento-php:7.3-cli"
+
+stages:
+    - build
+    - test
+
+cache:
+    paths:
+        - ~/.composer/cache/
+
+install:
+    stage: build
+    cache:
+        key: $CI_COMMIT_SHA
+        paths:
+            - vendor/
+            - composer.lock
+    script:
+        - composer config --global http-basic.repo.magento.com $COMPOSER_USER $COMPOSER_PASSWORD
+        - composer install --no-scripts --no-suggest --no-ansi --no-interaction --no-progress
+
+phpcs:
+    stage: test
+    cache:
+        key: $CI_COMMIT_SHA
+        paths:
+            - vendor/
+    script:
+        - vendor/bin/phpcs-tests
+
+eslint:
+    stage: test
+    cache:
+        key: $CI_COMMIT_SHA
+        paths:
+            - vendor/
+    script:
+        - vendor/bin/js-tests
+
+phpstan:
+    stage: test
+    cache:
+        key: $CI_COMMIT_SHA
+        paths:
+            - vendor/
+    script:
+        - vendor/bin/phpstan-tests
+
+phpmd:
+    stage: test
+    cache:
+        key: $CI_COMMIT_SHA
+        paths:
+            - vendor/
+    script:
+        - vendor/bin/phpmd-tests
+
+integrity:
+    stage: test
+    cache:
+        key: $CI_COMMIT_SHA
+        paths:
+            - vendor/
+    script:
+        - vendor/bin/integrity-tests
+
+phpunit:
+    stage: test
+    cache:
+        key: $CI_COMMIT_SHA
+        paths:
+            - vendor/
+    artifacts:
+        reports:
+            junit: clover.xml
+    script:
+        - docker-php-ext-enable xdebug
+        - vendor/bin/phpunit-tests 95

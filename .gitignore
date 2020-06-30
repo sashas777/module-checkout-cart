@@ -1,0 +1,7 @@
+/vendor/*
+composer.lock
+/node_modules/*
+package-lock.json
+/test-reports/*
+clover.xml
+/test-coverage-html/*
