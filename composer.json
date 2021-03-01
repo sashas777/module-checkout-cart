@@ -1,6 +1,6 @@
 {
     "name": "thesgroup/module-checkout-cart",
-    "description": "Checkout cart component module for Magento 2.3.x",
+    "description": "Checkout cart component module for Magento 2",
     "homepage": "https://www.sashas.org/",
     "type": "magento2-module",
     "repositories": [
