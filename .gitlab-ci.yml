@@ -1,4 +1,4 @@
-image: "sashas777/magento-php:7.3-cli"
+image: "sashas777/magento-php:7.4-cli"
 
 stages:
     - build
@@ -17,6 +17,7 @@ install:
             - composer.lock
     script:
         - composer config --global http-basic.repo.magento.com $COMPOSER_USER $COMPOSER_PASSWORD
+        - composer require --dev thesgroup/magento2-testing-framework
         - composer install --no-scripts --no-suggest --no-ansi --no-interaction --no-progress
 
 phpcs:
