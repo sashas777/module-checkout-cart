@@ -74,7 +74,7 @@ class ImageProviderTest extends TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->itemRepository = $this->getMockBuilder(CartItemRepositoryInterface::class)
                                      ->disableOriginalConstructor()

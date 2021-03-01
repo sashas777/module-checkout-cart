@@ -55,7 +55,7 @@ class CheckoutCartConfigProviderTest extends TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->checkoutSession = $this->getMockBuilder(CheckoutSession::class)
                                   ->disableOriginalConstructor()

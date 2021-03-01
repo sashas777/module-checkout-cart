@@ -221,7 +221,7 @@ class UpdateItemTest extends TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->context = $this->getMockBuilder(Context::class)
                               ->disableOriginalConstructor()

@@ -17,7 +17,7 @@ install:
             - composer.lock
     script:
         - composer config --global http-basic.repo.magento.com $COMPOSER_USER $COMPOSER_PASSWORD
-        - composer require --dev thesgroup/magento2-testing-framework
+        - composer require --dev thesgroup/magento2-testing-framework --no-update
         - composer install --no-scripts --no-suggest --no-ansi --no-interaction --no-progress
 
 phpcs:
