@@ -88,6 +88,7 @@ class UpdateItem extends Action implements HttpPostActionInterface
 
     /**
      * Controller execute method
+     *
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @return void
      */

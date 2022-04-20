@@ -43,6 +43,8 @@ class CheckoutCartConfigProvider implements ConfigProviderInterface
         $this->imageProvider = $imageProvider;
     }
     /**
+     * Get configuration
+     *
      * {@inheritdoc}
      */
     public function getConfig()

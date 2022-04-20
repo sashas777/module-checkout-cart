@@ -53,6 +53,8 @@ class ImageProvider
     }
 
     /**
+     * Get images by cart id
+     *
      * @param $cartId
      *
      * @return array
@@ -82,6 +84,8 @@ class ImageProvider
     }
 
     /**
+     * Get product for thumbnail image
+     *
      * @param Item $cartItem
      *
      * @return \Magento\Catalog\Api\Data\ProductInterface

@@ -38,6 +38,8 @@ class RemoveBlock implements ObserverInterface
     }
 
     /**
+     * Observer to remove block
+     *
      * @param Observer $observer
      */
     public function execute(Observer $observer)
