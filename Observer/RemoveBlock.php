@@ -19,7 +19,7 @@ use Magento\Store\Model\ScopeInterface;
  */
 class RemoveBlock implements ObserverInterface
 {
-    const ACTIVE_PATH = 'thesgroup_checkoutcart/checkoutcart_group/active';
+    public const ACTIVE_PATH = 'thesgroup_checkoutcart/checkoutcart_group/active';
 
     /**
      * @var ScopeConfigInterface

@@ -55,7 +55,7 @@ class ImageProvider
     /**
      * Get images by cart id
      *
-     * @param $cartId
+     * @param string $cartId
      *
      * @return array
      * @throws \Magento\Framework\Exception\NoSuchEntityException
