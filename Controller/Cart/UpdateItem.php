@@ -106,11 +106,11 @@ class UpdateItem extends Action implements HttpPostActionInterface
             $quote = $this->checkoutSession->getQuote();
 
             foreach ($cartData as $itemId => $itemInfo) {
-                if ($itemId=='empty_cart') {
+                if ($itemId == 'empty_cart') {
                     continue;
                 }
                 $item = $quote->getItemById($itemId);
-                $qty = isset($itemInfo['qty']) ? (double) $itemInfo['qty'] : 0;
+                $qty = isset($itemInfo['qty']) ? (float) $itemInfo['qty'] : 0;
 
                 if ($item) {
                     if (!empty($itemInfo['remove']) || isset($itemInfo['qty']) && $itemInfo['qty'] == '0') {
